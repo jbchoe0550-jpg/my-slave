@@ -1,0 +1,7 @@
+streamlit
+google-generativeai
+plotly
+requests
+beautifulsoup4
+yfinance
+apscheduler
