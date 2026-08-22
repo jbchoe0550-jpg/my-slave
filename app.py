@@ -14,10 +14,16 @@ import streamlit as st
 import yfinance as yf
 
 # =============================================================
-# 설정 및 환경 변수
+# 설정 및 환경 변수 (안전한 로드)
 # =============================================================
-GITHUB_TOKEN = st.secrets.get("GITHUB_TOKEN", os.environ.get("GITHUB_TOKEN", ""))
-GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", os.environ.get("GEMINI_API_KEY", ""))
+def get_secret(key):
+    try:
+        return st.secrets.get(key, os.environ.get(key, ""))
+    except Exception:
+        return os.environ.get(key, "")
+
+GITHUB_TOKEN = get_secret("GITHUB_TOKEN")
+GEMINI_API_KEY = get_secret("GEMINI_API_KEY")
 REPO_NAME, CALENDAR_FILE, WATCHLIST_FILE = "jbchoe0550-jpg/my-slave", "calendar_data.json", "watchlist.json"
 COLOR_PALETTE = ["#2563eb", "#16a34a", "#d97706", "#9333ea", "#0284c7", "#e11d48", "#0d9488"]
 ACADEMIC_COLOR = "#ea580c"
