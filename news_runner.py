@@ -13,8 +13,8 @@ genai.configure(api_key=api_key)
 # 오늘 날짜 구하기
 today_str = datetime.now().strftime("%Y-%m-%d")
 
-# 최신 지원 모델(gemini-2.5-flash)로 변경
-model = genai.GenerativeModel('gemini-2.5-flash')
+# 안내된 최신 모델(gemini-3.6-flash)로 변경
+model = genai.GenerativeModel('gemini-3.6-flash')
 prompt = "오늘의 주요 트렌드 및 IT 뉴스를 알기 쉽게 핵심만 요약해줘."
 response = model.generate_content(prompt)
 
